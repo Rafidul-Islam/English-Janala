@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English Janala</title>
+    <link
+      rel="shortcut icon"
+      href="assets/hero-student.png"
+      type="image/x-icon"
+    />
+    <!-- Daisy Ui Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tailwind Link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Connecting CSS file -->
+    <link rel="stylesheet" href="styles/style.css" />
+    <!-- Remix Icon Cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!-- Google Font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Sweet Alert  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <header id="header" class="hidden fixed w-full z-10">
+      <nav
+        class="flex items-center justify-between lg:px-8 px-3 py-2 bg-gradient-to-r from-white via-slate-200 to-white border-b-2 border-gray-300"
+      >
+        <div class="flex items-center">
+          <h1 class="font-semibold">English</h1>
+          <img src="assets/logo.png" alt="" />
+          <h1>জানালা</h1>
+        </div>
+        <div>
+          <button
+            id="FAQ"
+            class="btn btn-sm hover:bg-blue-700 hover:text-white border-blue-700 text-blue-700"
+          >
+            <i class="ri-question-line"></i
+            ><span class="hidden lg:flex">FAQ</span>
+          </button>
+          <button
+            id="LEARN"
+            class="btn btn-sm hover:bg-blue-700 hover:text-white border-blue-700 text-blue-700"
+          >
+            <i class="ri-book-open-line"></i
+            ><span class="hidden lg:flex">LEARN</span>
+          </button>
+          <button
+            id="Log-Out"
+            class="btn btn-sm hover:bg-blue-700 hover:text-white border-blue-700 text-blue-700"
+          >
+            <i class="ri-logout-box-r-line"></i
+            ><span class="hidden lg:flex">Log Out</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Bannaer 1 styling -->
+      <section id="banner-1" class="lg:w-screen lg:h-screen lg:flex">
+        <!-- first half -->
+        <div
+          id="banner-description"
+          class="lg:w-1/2 flex flex-col justify-center lg:p-15 p-5 space-y-5"
+        >
+          <div class="space-y-3">
+            <h1 class="text-3xl font-bold">
+              <span class="text-blue-600">English</span> is Easy !!
+            </h1>
+            <p class="font-siliguri font-medium text-gray-800">
+              আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+              আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে
+              যাবে অন্য একটি Level এ
+            </p>
+          </div>
+          <div class="space-y-3">
+            <form action="">
+              <input
+                class="lg:w-1/2 border-gray-400 px-2 py-1 rounded mb-2"
+                type="text"
+                placeholder="Enter username"
+                name=""
+                id="username"
+              /><br />
+              <input
+                class="lg:w-1/2 border-gray-400 px-2 py-1 rounded"
+                type="password"
+                placeholder="Enter password(123456)"
+                value=""
+                name=""
+                id="password"
+              />
+            </form>
+            <button
+              id="get-started-btn"
+              class="btn btn-sm w-36 bg-blue-800 text-white"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+        <!-- Second half -->
+        <div
+          id="banner-photo
+        "
+          class="lg:w-1/2 flex justify-center items-center"
+        >
+          <img src="assets/hero-student.png" class="w-5/6" />
+        </div>
+      </section>
+
+      <!-- Banner 2 styling -->
+      <section
+        id="banner-2"
+        class="lg:px-12 space-y-3 flex justify-center flex-col pt-30 lg:pb-10 pb-2 hidden"
+      >
+        <!-- Banner title -->
+        <h1 class="text-2xl font-bold text-center py-2">
+          <span class="text-blue-600">Let's </span>Learn Vocalbularies
+        </h1>
+
+        <!-- Showing Levels -->
+        <div
+          id="level-button-container"
+          class="flex justify-center flex-wrap gap-2 px-2"
+        ></div>
+
+        <!-- Spinner -->
+        <div id="spinner" class="hidden text-center p-20">
+          <span class="loading loading-infinity loading-xl scale-350"></span>
+        </div>
+
+        <!-- Showing Without Selecting levels -->
+        <div
+          id="not-loaded-section"
+          class="bg-slate-200 flex justify-center flex-col items-center space-y-4 lg:py-15 font-siliguri rounded mt-10 mx-5 p-5"
+        >
+          <p class="text-gray-700 text-xs">
+            আপনি এখনো কোন Lesson Select করেন নি
+          </p>
+          <p class="text-3xl font-semibold text-center">
+            একটি Lesson Select করুন।
+          </p>
+        </div>
+      </section>
+      <!-- With Selected Levels -->
+
+      <!--  -->
+      <section
+        id="banner-3"
+        class="lg:px-12 px-4 lg:py-12 mb-5 space-y-2 hidden z-5"
+      >
+        <h1 class="text-2xl font-bold text-center py-4">
+          <span class="text-blue-600">Frequently </span>Asked Questions?
+        </h1>
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" checked="checked" />
+          <div class="collapse-title font-semibold">
+            What is the difference between var, let, and const?
+          </div>
+          <div class="collapse-content text-sm">
+            Var means global variable.It can be accessed from any line of the
+            code.Its not a block scope variable.Its value can be reassigned and
+            changed.
+            <br />
+            <br />
+            Let is block scope variable.It can be accessed only in its defined
+            block.I mean inside {}.Its value can't be reassigned in its block
+            scope but can be re-declared outside the scope.
+            <br />
+            <br />
+            const means constant value.It's block scoped.It's value can't be
+            re-declared and re-assigned.
+          </div>
+        </div>
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            What is the difference between map(), forEach(), and filter() ?
+          </div>
+          <div class="collapse-content text-sm">
+            map() selects an array,do some work and returns a new array when the
+            work is done. foreach() does the work but do not returns an array.
+            filter() and map() is simillar but the main difference is in use
+            case.we use filter() filter a array.And filter() also returns an
+            array with filtered values.
+          </div>
+        </div>
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            Explain arrow functions and how they are different from regular
+            functions?
+          </div>
+          <div class="collapse-content text-sm">
+            Javasscript arrow function is a short form of writing
+            functions.Arrow function is used to write short code.For example
+            <pre>
+
+     function sum(a,b){
+     const sum = a+b;
+     return sum;
+    }
+    This is regular function.
+    </pre
+            >
+            <pre>
+      const sum=(a,b)=>return a+b;        
+      This is arrow function.      
+       </pre
+            >
+          </div>
+        </div>
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            How JavaScript Promises work?
+          </div>
+          <div class="collapse-content text-sm">
+            When we try to fetch from an api it gives a promise.Promise means a
+            commitment that the api will give us the data.promise has 3 state.
+            <pre>
+
+      1. Pending = It means the data is loading.      
+      2. Resolve = Data is loaded and can ude data now.     
+      3. Rejected = The api call was not successfull.So the data could not load.     
+     </pre
+            >
+          </div>
+        </div>
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            How closures work in JavaScript?
+          </div>
+          <div class="collapse-content text-sm">
+            When we create a function and inside that function there is another
+            function that can access the variables or data from the main
+            function.And when we close the container functiion we can still use
+            the inner function and use the info of the container function.
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="lg:px-18 p-5 lg:py-8 lg:flex lg:justify-between border-t-2 border-gray-200 space-y-2"
+    >
+      <div class="">
+        <div class="flex items-center mb-2">
+          <h1 class="font-semibold">English</h1>
+          <img src="assets/logo.png" alt="" />
+          <h1>জানালা</h1>
+        </div>
+        <p class="text-base font-medium">ইংরেজি শিখুন সহজে</p>
+        <p class="text-base">Providing ED-Tech Applications since 2025</p>
+      </div>
+      <div class="flex flex-col justify-center">
+        <p class="bottom-2">Follow us on</p>
+        <ul class="text-2xl flex lg:justify-around">
+          <li>
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="ri-facebook-circle-line"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="ri-instagram-line"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/" target="_blank"
+              ><i class="ri-linkedin-box-fill"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- <script src="scripts/levelBtn.js"></script> -->
+
+    <!-- ------------------------------ -->
+    <!-- MODAL HTML -->
+    <div
+      id="word-modal"
+      class="fixed inset-0 backdrop-blur-[2px] bg-opacity-50 flex items-center justify-center hidden z-50"
+    >
+      <div
+        class="bg-white p-5 rounded-lg max-w-md w-full shadow-xl relative space-y-3 bg-gray-200"
+      >
+        <div class="p-3 border-2 border-gray-200 rounded-lg">
+          <h2
+            id="modal-word"
+            class="text-2xl font-bold mb-2 font-siliguri"
+          ></h2>
+          <div class="">
+            <p class="py-1 font-semibold">Meaning</p>
+            <p
+              id="modal-meaning"
+              class="text-base text-gray-700 font-siliguri"
+            ></p>
+          </div>
+          <div class="">
+            <p class="py-1 font-semibold">Example</p>
+            <p id="Example"></p>
+          </div>
+
+          <div>
+            <p class="py-2 font-semibold">সমার্থক শব্দ গুলো</p>
+            <p id="simillar-Words" class="flex flex-wrap gap-2"></p>
+          </div>
+        </div>
+        <button
+          id="close-modal"
+          class="btn btn-sm bg-blue-100 hover:bg-blue-700 hover:text-white rounded-md"
+        >
+          Complete Learning
+        </button>
+      </div>
+    </div>
+
+    <!-- Adding JS Files -->
+    <script src="scripts/redirect.js"></script>
+    <script src="scripts/fetchapi.js"></script>
+    <script src="scripts/modal.js"></script>
+  </body>
+</html>
